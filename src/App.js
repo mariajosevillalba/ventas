@@ -1,12 +1,11 @@
-import Header from "./Components/Header";
-import Menu from "./Components/Menu";
+import React from "react";
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/js/all';
+import Layout from "./Components/Layout";
 function App  () {
   return (
     <div >
-      <h1>
-      <Header/>
-      <Menu titulo = "universid de ibague" subtitulo = "sistemas"/>
-      </h1>
+      <Layout/>
     </div>
   );
 }

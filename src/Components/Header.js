@@ -1,17 +1,16 @@
 import React from "react";
 
-
-
 const Header =() =>  {
-    const titulo = "Header";
-    const a = 5;
-    const b = 6;
-
   return (
-    <div>
-      <h2>{titulo}</h2>
-      <p>{a+b}</p>
+    <div className="navbar is-primary">
+      <div className="navbar-brand">
+       <a  className="navbar-item">
+        <img src="logo.png" alt = "logo"/>
+       </a>
+      </div>
     </div>
+    
+
   );
 }
 
