@@ -1,11 +1,17 @@
 import React from "react";
-import Layout from "../Components/Layout";
+import Layout from "../components/commons/Layout";
+import TableCliente from "../components/clientes/TableCliente";
 
-const Home=() =>{
-    return( 
+const Home = () =>{
+
+    return(
+
         <Layout>
+
             <p>Home</p>
-        </Layout>
+
+        </Layout>   
     );
+
 }
 export default Home;
