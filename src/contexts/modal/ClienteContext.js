@@ -115,26 +115,37 @@ export const ClienteContextProvider = (props) => {
 
   const eliminarCliente = async(idCliente) => {
     try{
-      await Axios.delete( `/clientes/${idCliente}`)
-    dispatch({
-      type: ELIMINAR_CLIENTE,
-      payload: idCliente,
-    });
-    Swal.fire({
-      icon: 'success',
-      title: 'Correcto',
-      text: 'Cliente eliminado correctamente',
-      toast: true
-    })
-  } catch (error) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'No se pudo eliminar el cliente',
-      toast: true
-    })
-    console.log(error)
-  }
+      
+      dispatch({
+        type: ELIMINAR_CLIENTE,
+        payload: idCliente,
+      });
+      Swal.fire({
+        icon: 'warning',
+        title: '¿Desea Continuar?',
+        text: 'Se eliminará el cliente seleccionado',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Axios.delete( `/clientes/${idCliente}`)
+          Swal.fire({
+            icon: 'success',
+            title: 'Correcto',
+            text: 'Cliente eliminado correctamente',
+            toast: true
+          })
+        }
+      })
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No se pudo eliminar el cliente',
+        toast: true
+      })
+      console.log(error)
+    }                                                   
   };
 
   return (
